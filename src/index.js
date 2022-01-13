@@ -1,1 +1,1 @@
-console.log('start');
+export { default as koaLogger } from './core/log';

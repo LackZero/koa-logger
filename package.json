@@ -49,5 +49,10 @@
     "lint-staged": "^12.1.4",
     "prettier": "^2.5.1",
     "rollup": "^2.63.0"
+  },
+  "dependencies": {
+    "bytes": "^3.1.1",
+    "chalk": "^4.1.2",
+    "passthrough-counter": "^1.0.0"
   }
 }

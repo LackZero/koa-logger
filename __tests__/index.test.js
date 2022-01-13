@@ -1,4 +1,4 @@
-import koaLogger from '../src';
+import { koaLogger } from '../src';
 
 describe('Koa-Logger', () => {
   it('hello world display', async () => {
