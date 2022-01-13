@@ -26,7 +26,9 @@ const config = {
       footer
     }
   ],
-  external: [...dependencies],
+  // 如果使用 dependencies里的，则 @babel/runtime/helpers/get无效
+  // Rollup will only exclude modules that match strings exactly.
+  external: [...dependencies, /@babel\/runtime/],
   plugins: [
     commonjs(),
     nodeResolve(),
