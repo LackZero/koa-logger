@@ -12,11 +12,11 @@ $ pnpm
 
 #### Build
 
-以监听模式启动编译(可选)。
+启动编译。
 
 ```shell
 
-$ npm run build:watch
+$ npm run build
 
 ```
 
