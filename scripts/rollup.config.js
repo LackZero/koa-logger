@@ -32,9 +32,12 @@ const config = {
     nodeResolve(),
     babel({
       exclude: 'node_modules/**',
-      babelHelpers: 'bundled',
       // 使用自定义配置，默认取的是根目录的配置
       babelrc: false,
+      // babelHelpers: 'bundled',
+      // 使用runtime进行打包，让代码更完整，第三方不用强制使用babel
+      babelHelpers: 'runtime',
+      plugins: ['@babel/plugin-transform-runtime'],
       presets: [
         [
           '@babel/preset-env',

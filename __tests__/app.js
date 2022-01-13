@@ -1,6 +1,7 @@
 import Koa from 'koa';
 import Router from '@koa/router';
-import { koaLogger } from '../src';
+// import { koaLogger } from '../src';
+import { koaLogger } from '../lib';
 
 export default function start(options) {
   const app = new Koa();
