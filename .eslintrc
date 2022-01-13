@@ -1,0 +1,10 @@
+{
+  "extends": ["sea"],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "no-use-before-define": "warn",
+    "no-shadow": "warn"
+  }
+}
