@@ -24,6 +24,7 @@ specifiers:
   lint-staged: ^12.1.4
   passthrough-counter: ^1.0.0
   prettier: ^2.5.1
+  rimraf: ^3.0.2
   rollup: ^2.63.0
   supertest: ^6.2.1
 
@@ -53,6 +54,7 @@ devDependencies:
   koa: 2.13.4
   lint-staged: 12.1.7
   prettier: 2.5.1
+  rimraf: 3.0.2
   rollup: 2.63.0
   supertest: 6.2.1
 

@@ -5,13 +5,15 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
+    "clean": "rimraf lib dist es coverage",
     "build": "node scripts/build.js",
     "test": "jest",
     "lint:js": "eslint --cache --ext .js src/",
     "lint:fix": "npm run lint:js -- --fix",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
-    "devPreinstall": "echo \"devPreinstall\" && exit 1"
+    "devPreinstall": "echo \"devPreinstall not work\" && exit 1",
+    "prepublishOnly": "npm run clean & npm run build"
   },
   "repository": {
     "type": "git",
@@ -56,6 +58,7 @@
     "koa": "^2.13.4",
     "lint-staged": "^12.1.4",
     "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
     "rollup": "^2.63.0",
     "supertest": "^6.2.1"
   },
