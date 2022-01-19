@@ -22,3 +22,15 @@ app.use(koaLogger(options));
 | 参数        | 说明           | 类型       | 默认值        |
 | :---------- | :------------- | :--------- | :------------ |
 | transporter | 自定义打印工具 | `Function` | `console.log` |
+
+## CHANGELOG
+
+[CHANGELOG.md](https://github.com/LackZero/koa-logger/blob/main/CHANGELOG.md)
+
+## TODOLIST
+
+[TODO](https://github.com/LackZero/koa-logger/projects/1)
+
+## Contributing
+
+如何贡献代码查看 [CONTRIBUTING](https://github.com/LackZero/koa-logger/blob/main/CONTRIBUTING.md)
