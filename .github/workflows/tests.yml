@@ -38,6 +38,8 @@ jobs:
       - name: Install dependencies 📦️
         run: pnpm install
 
+      - name: Build 📦️
+        run: pnpm run build      
       - name: Run test
         run: pnpm run test
       - name: Upload coverage report to codeCov
