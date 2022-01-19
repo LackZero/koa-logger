@@ -8,7 +8,7 @@ labels: 'bug'
   请使用最新版本的安装包，以确保您遇到问题仍未得到解决。
 -->
 
-包名/Package:
+包名/Package: @lack-org/koa-logger
 
 ## 您的本地环境信息/Your local environment information
 
