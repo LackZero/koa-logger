@@ -8,6 +8,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
-## [v0.0.2] - 2022-01-18
+## [v0.0.1] - 2022-01-19
 
 - init
