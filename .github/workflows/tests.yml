@@ -1,0 +1,43 @@
+name: 'TESTS CI'
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-ci:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@main
+
+      - name: use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+#          pnpm 缓存 https://pnpm.io/zh/continuous-integration#github-actions
+          cache: "pnpm"
+
+      - name: Print Env 📄
+        run: |
+          echo "node"
+          node -v
+          echo "pnpm"
+          pnpm -v
+
+      - name: Install dependencies 📦️
+        run: pnpm install
+
+      - name: Run test
+        run: pnpm run test
+      - name: Upload coverage report to codeCov
+        uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true
