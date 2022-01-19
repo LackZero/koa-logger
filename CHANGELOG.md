@@ -6,9 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [v0.0.2] - 2022-01-19
+
 ### Fixed
 
-- 移除 `package.json`中`"preinstall": "npx only-allow pnpm"`
+- 移除 `package.json`中`"preinstall": "npx only-allow pnpm"`，修复 [issue](https://github.com/LackZero/koa-logger/issues/1)
 
 ## [v0.0.1] - 2022-01-19
 
