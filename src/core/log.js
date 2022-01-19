@@ -17,6 +17,8 @@ function handlePrintFunc(transporter) {
   };
 }
 
+// 移除，不再使用
+// eslint-disable-next-line no-unused-vars
 const handleBodyStr = (ctx) => (ctx.request.method === 'GET' ? '' : JSON.stringify(ctx.request.body));
 
 const formatTime = (time) => {
@@ -36,6 +38,8 @@ const formatTime = (time) => {
 const handleResponseLog = (print, ctx, start, length, err, event) => {
   // 总耗时
   const ms = formatTime(Date.now() - start);
+  // 从异常err中获取响应的状态码
+  // 根据不同状态码区间，1xx、2xx、3xx、4xx、5xx，映射选择不用颜色输出加以区分
   const status = err ? err.status || 500 : ctx.status || 404;
   const s = status.toString()[0] || '0';
   const color = statusColorsMap[s] || statusColorsMap[0];
@@ -50,6 +54,7 @@ const handleResponseLog = (print, ctx, start, length, err, event) => {
   // eslint-disable-next-line no-nested-ternary
   const logo = err ? chalk.red(errorLogo) : event === 'close' ? chalk.yellow(closeLogo) : endLogo;
 
+  // 输出：请求方法、请求url，状态码、请求响应时间、响应内容大小
   print(
     `  %s ${chalk.bold('%s')} %s ${chalk[color]('%s')} %s %s`,
     logo,
@@ -62,7 +67,7 @@ const handleResponseLog = (print, ctx, start, length, err, event) => {
 };
 /**
  * @desc 日志记录
- * @param {object} options 参数列表
+ * @param {object} [options] 参数
  * @param {function} [options.transporter] 自定义打印 默认是console
  */
 function logger(options = {}) {
@@ -70,25 +75,17 @@ function logger(options = {}) {
   return async (ctx, next) => {
     // 响应开始时间
     const start = Date.now();
-    const bodyStr = handleBodyStr(ctx);
     try {
       // 控制台打印信息，也可用console.log
-      print(
-        `  %s ${chalk.bold('%s')} %s %s`,
-        startLogo,
-        ctx.request.method,
-        ctx.request.url,
-        bodyStr
-      );
+      print(`  %s ${chalk.bold('%s')} %s`, startLogo, ctx.request.method, ctx.request.url);
 
       await next();
-
       const {
         body,
         response: { length }
       } = ctx;
       let counter;
-      // 如果返回的数据可读流，计算流的长度
+      // 如果返回的数据（ctx.body）可读流，借助 passthrough-counter计算stream的buffer length
       if (length === null && body && body.readable) {
         ctx.body = body.pipe((counter = counterFunc())).on('error', ctx.onerror);
       }

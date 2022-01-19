@@ -3,8 +3,8 @@ import chalk from 'chalk';
 import appFunc from './app';
 import { endLogo, startLogo, statusColorsMap } from '../src/config';
 
-const firstLogPrefix = () => `  %s ${chalk.bold('%s')} %s %s`;
-const secondeLogPrefix = (status) => {
+const firstLogPrefix = () => `  %s ${chalk.bold('%s')} %s`;
+const secondLogPrefix = (status) => {
   const s = status.toString()[0] || '0';
   const color = statusColorsMap[s] || statusColorsMap[0];
   return `  %s ${chalk.bold('%s')} %s ${chalk[color]('%s')} %s %s`;
@@ -34,10 +34,10 @@ describe('koaLogger', () => {
 
   it('测试log打印日志', async () => {
     await request(app.callback()).get('/200');
-    expect(logSpy).toHaveBeenNthCalledWith(1, firstLogPrefix(), startLogo, 'GET', '/200', '');
+    expect(logSpy).toHaveBeenNthCalledWith(1, firstLogPrefix(), startLogo, 'GET', '/200');
     expect(logSpy).toHaveBeenNthCalledWith(
       2,
-      secondeLogPrefix(200),
+      secondLogPrefix(200),
       endLogo,
       'GET',
       '/200',
