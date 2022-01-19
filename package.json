@@ -21,6 +21,9 @@
     "devPreinstall": "echo \"devPreinstall not work\" && exit 1",
     "prepublishOnly": "npm run clean & npm run build"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LackZero/koa-logger.git"
