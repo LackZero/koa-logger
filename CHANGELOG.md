@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
 
+## [v0.0.3] - 2022-01-19
+
 ### Fixed
 
 - 移除打印 ctx.request.body 的信息，过于依赖 koa-body 等包
