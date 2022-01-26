@@ -18,7 +18,7 @@
     "lint:fix": "npm run lint:js -- --fix",
     "prepare": "husky install",
     "devPreinstall": "echo \"devPreinstall not work\" && exit 1",
-    "prepublishOnly": "npm run clean & npm run build"
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "publishConfig": {
     "access": "public"
